@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>IST-HILLTOWN · Tempe Haftalık Performans</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --soft: #4a4a4a;
+      --muted: #7a7a7a;
+      --paper: #f7f5f2;
+      --accent: #c45c26;
+      --pos: #1f6b4a;
+      --neg: #a33a2c;
+      --rule: #e4dfd8;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--ink);
+      color: var(--ink);
+      min-height: 100dvh;
+    }
+    .bar {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 12px 16px;
+      background: rgba(26,26,26,.92); backdrop-filter: blur(8px);
+      color: #fff; border-bottom: 1px solid #333;
+    }
+    .bar strong { color: var(--accent); font-size: 12px; letter-spacing: .06em; }
+    .bar span { font-size: 12px; color: #aaa; }
+    .dl {
+      display: inline-block; padding: 8px 12px; border-radius: 8px;
+      background: var(--accent); color: #fff; text-decoration: none;
+      font-size: 13px; font-weight: 600; white-space: nowrap;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 16px 14px 80px; }
+    .slide {
+      background: var(--paper); border-radius: 16px; padding: 22px 18px;
+      margin-bottom: 14px; box-shadow: 0 8px 28px rgba(0,0,0,.25);
+    }
+    .slide.dark { background: var(--ink); color: #fff; }
+    .eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+    h1 { font-size: clamp(28px, 8vw, 40px); line-height: 1.1; margin: 8px 0 14px; }
+    h2 { font-size: 22px; margin-bottom: 6px; }
+    .sub { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+    .dark .sub { color: #aaa; }
+    .grid { display: grid; gap: 10px; }
+    .grid.3 { grid-template-columns: 1fr; }
+    @media (min-width: 560px) { .grid.3 { grid-template-columns: repeat(3, 1fr); } .grid.2 { grid-template-columns: 1fr 1fr; } }
+    .card {
+      background: var(--white); border: 1px solid var(--rule); border-radius: 12px; padding: 14px;
+    }
+    .dark .card { background: #222; border-color: #333; }
+    .label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+    .value { font-size: 28px; font-weight: 700; margin: 6px 0 4px; }
+    .delta { font-size: 13px; font-weight: 700; }
+    .delta.up { color: var(--pos); }
+    .delta.down { color: var(--neg); }
+    ul { padding-left: 18px; }
+    li { margin: 8px 0; color: var(--soft); font-size: 14px; line-height: 1.45; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { background: var(--ink); color: #fff; text-align: left; padding: 10px 8px; font-size: 11px; letter-spacing: .05em; }
+    td { padding: 12px 8px; border-bottom: 1px solid var(--rule); background: #fff; }
+    tr:nth-child(even) td { background: #f0ece6; }
+    .pos { color: var(--pos); font-weight: 700; }
+    .neg { color: var(--neg); font-weight: 700; }
+    .big { font-size: 64px; font-weight: 800; color: var(--neg); line-height: 1; }
+    .bar-stack { display: flex; height: 28px; border-radius: 8px; overflow: hidden; margin: 12px 0; }
+    .bar-stack span { display: block; height: 100%; }
+    .legend { display: flex; flex-wrap: wrap; gap: 10px 16px; font-size: 13px; color: var(--soft); }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; }
+    .prod { display: grid; grid-template-columns: 40px 1fr auto; gap: 8px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    .rank { color: var(--accent); font-weight: 800; font-size: 18px; }
+    .hint {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(26,26,26,.95); color: #ccc; font-size: 12px; text-align: center;
+    }
+    .hint a { color: var(--accent); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <div>
+      <strong>IST-HILLTOWN</strong><br />
+      <span>Tempe · Son 7 gün</span>
+    </div>
+    <a class="dl" href="https://github.com/deniz-karakocoglu/Guzelim/raw/cursor/tempe-haftalik-sunum-210d/presentations/IST-HILLTOWN_Tempe_Haftalik_Performans.pptx">PPTX indir</a>
+  </div>
+
+  <div class="wrap">
+    <section class="slide dark">
+      <div class="eyebrow">IST-HILLTOWN</div>
+      <h1>TEMPE HAFTALIK PERFORMANS</h1>
+      <p class="sub">Son 7 gün satış, kategori ve stok özeti · 21 Eylül 2026</p>
+    </section>
+
+    <section class="slide">
+      <h2>Satış Özeti</h2>
+      <p class="sub">Haftalık Tempe toplam performansı</p>
+      <div class="grid 3">
+        <div class="card">
+          <div class="label">Total Tempe Satış</div>
+          <div class="value">397 uts</div>
+          <div class="delta up">+62 uts · +%18,6</div>
+        </div>
+        <div class="card">
+          <div class="label">En Düşük Gün</div>
+          <div class="value">Perşembe</div>
+          <div class="delta down">45 uts</div>
+        </div>
+        <div class="card">
+          <div class="label">Ana Sürücü</div>
+          <div class="value" style="font-size:22px">Basic Tempe</div>
+          <div class="delta up">Adet & TL lideri</div>
+        </div>
+      </div>
+      <ul style="margin-top:16px">
+        <li>Toplam satış 397 uts ile geçen haftaya göre +62 adet (+%18,6) arttı.</li>
+        <li>Büyümenin ana kaynağı Basic Tempe.</li>
+        <li>Perşembe 45 uts ile haftanın en düşük satışı.</li>
+        <li>Sebep: dağıtılmayan 25’ler ve ertesi güne kalan sepetler.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Perşembe Günü Düşüşü</h2>
+      <p class="sub">Operasyonel etki analizi</p>
+      <div class="card" style="text-align:center; margin-bottom:12px">
+        <div class="label">Perşembe satış</div>
+        <div class="big">45</div>
+        <div class="sub">uts · haftanın en düşük günü</div>
+      </div>
+      <ul>
+        <li><strong>Dağıtılmayan 25’ler</strong> — kritik bedenlerin mağazaya ulaşmaması</li>
+        <li><strong>Ertesi güne kalan sepetler</strong> — tamamlanamayan satışlar sarktı</li>
+        <li><strong>Aksiyon</strong> — teslimat takibi ve sepet kapatma disiplini</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Kategori Performansı</h2>
+      <p class="sub">Buyer bazında adet ve TL</p>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr><th>Kategori</th><th>Adet</th><th>TL</th><th>Durum</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Basic Tempe</td><td class="pos">En yüksek</td><td class="pos">En yüksek</td><td class="pos">Lider</td></tr>
+            <tr><td>Bags</td><td class="neg">−1</td><td>Nötr</td><td class="neg">Adette eksi</td></tr>
+            <tr><td>Sneakers</td><td class="neg">−4</td><td class="neg">−7k ₺</td><td class="neg">Adet & TL eksi</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Stok Durumu</h2>
+      <p class="sub">Tempe envanter dağılımı</p>
+      <div class="grid 3">
+        <div class="card">
+          <div class="label">Total stok</div>
+          <div class="value">1.753</div>
+          <div class="delta up">+413 uts</div>
+        </div>
+        <div class="card">
+          <div class="label">Aktif oran</div>
+          <div class="value">%82</div>
+          <div class="delta up">Güçlü</div>
+        </div>
+        <div class="card">
+          <div class="label">Pasif stok</div>
+          <div class="value">320</div>
+          <div class="delta down">İyileştirme alanı</div>
+        </div>
+      </div>
+      <div class="bar-stack" style="margin-top:16px">
+        <span style="width:42.7%;background:var(--accent)"></span>
+        <span style="width:39.0%;background:#2c2c2c"></span>
+        <span style="width:18.3%;background:#7a7a7a"></span>
+      </div>
+      <div class="legend">
+        <span><i class="dot" style="background:var(--accent)"></i>Shop 749</span>
+        <span><i class="dot" style="background:#2c2c2c"></i>Aktif 684</span>
+        <span><i class="dot" style="background:#7a7a7a"></i>Pasif 320</span>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Ladies Ranking — Top</h2>
+      <p class="sub">Son 7 gün · units</p>
+      <div class="prod"><span class="rank">01</span><div><strong>Mary Jane Ante</strong></div><div class="pos">13 uts<br /><small style="color:var(--muted)">₺34.970</small></div></div>
+      <div class="prod"><span class="rank">02</span><div><strong>Slingback Tacón Alto</strong></div><div class="pos">11 uts<br /><small style="color:var(--muted)">₺27.390</small></div></div>
+      <div class="prod"><span class="rank">03</span><div><strong>Zapato Tacón Media</strong></div><div class="pos">11 uts<br /><small style="color:var(--muted)">₺14.190</small></div></div>
+      <div class="prod"><span class="rank">04</span><div><strong>Shopper Asa Edited</strong></div><div class="pos">10 uts<br /><small style="color:var(--muted)">₺26.900</small></div></div>
+      <div class="prod"><span class="rank">05</span><div><strong>Destalonado Print</strong></div><div class="pos">10 uts<br /><small style="color:var(--muted)">₺26.900</small></div></div>
+      <div class="prod"><span class="rank">06</span><div><strong>Destalonado Medio</strong></div><div class="pos">10 uts<br /><small style="color:var(--muted)">₺18.900</small></div></div>
+      <div class="prod"><span class="rank">07</span><div><strong>Bota Hípica</strong></div><div class="pos">9 uts<br /><small style="color:var(--muted)">₺32.310</small></div></div>
+      <div class="prod"><span class="rank">08</span><div><strong>Shopper Metálica</strong></div><div class="pos">9 uts<br /><small style="color:var(--muted)">₺24.210</small></div></div>
+    </section>
+
+    <section class="slide">
+      <h2>Sonuç & Aksiyonlar</h2>
+      <div class="grid 2" style="margin-top:8px">
+        <div class="card"><strong>1. Büyüme</strong><p class="sub" style="margin:6px 0 0">Basic Tempe derinliği korunarak +%18,6 sürdürülmeli.</p></div>
+        <div class="card"><strong>2. Perşembe</strong><p class="sub" style="margin:6px 0 0">25’ teslimat + sepet kapatma günlük takipte.</p></div>
+        <div class="card"><strong>3. Sneakers</strong><p class="sub" style="margin:6px 0 0">−4 uts / −7k ₺ için görünürlük ve beden tamlığı.</p></div>
+        <div class="card"><strong>4. Bags</strong><p class="sub" style="margin:6px 0 0">Shopper display/stok disiplini korunmalı.</p></div>
+        <div class="card"><strong>5. Pasif stok</strong><p class="sub" style="margin:6px 0 0">320 uts için transfer / floor push.</p></div>
+        <div class="card"><strong>6. Aktif oran</strong><p class="sub" style="margin:6px 0 0">%82 güçlü — 1.753 stok sağlığı korunmalı.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="hint">
+    PowerPoint için sağ üstteki <a href="https://github.com/deniz-karakocoglu/Guzelim/raw/cursor/tempe-haftalik-sunum-210d/presentations/IST-HILLTOWN_Tempe_Haftalik_Performans.pptx">PPTX indir</a> butonuna bas
+  </div>
+</body>
+</html>
